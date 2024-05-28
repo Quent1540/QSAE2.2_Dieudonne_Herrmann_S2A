@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
-public class GrapheListe implements Graphe{
+public class GrapheListe implements Graphe {
     private ArrayList<String> noeuds;
     private ArrayList<Arcs> adjacence;
 
@@ -9,16 +9,16 @@ public class GrapheListe implements Graphe{
         adjacence = new ArrayList<>();
     }
 
-    public int getIndice(String n){
+    public int getIndice(String n) {
         return noeuds.indexOf(n);
     }
 
-    public void ajouterArc(String depart, String destination, double cout){
-        if (!noeuds.contains(depart)){
+    public void ajouterArc(String depart, String destination, double cout) {
+        if (!noeuds.contains(depart)) {
             noeuds.add(depart);
             adjacence.add(new Arcs());
         }
-        if (!noeuds.contains(destination)){
+        if (!noeuds.contains(destination)) {
             noeuds.add(destination);
             adjacence.add(new Arcs());
         }
@@ -52,21 +52,5 @@ public class GrapheListe implements Graphe{
 
             sb.append("\n");
         }
-
-    public static void main(String[] args){
-        GrapheListe g = new GrapheListe();
-        g.noeuds(0)="D";
-        g.noeuds(1)="B";
-        g.noeuds(2)="C";
-        g.noeuds(3)="A";
-        g.noeuds(4)="E";
-        g.ajouterArc("D","B",23);
-        g.ajouterArc("B","E",11);
-        g.ajouterArc("D","C",10);
-        g.ajouterArc("C","A",19);
-        g.ajouterArc("A","B",12);
-        g.ajouterArc("E","D",43);
-        g.ajouterArc("A","D",87);
-        System.out.println(g.toString());
     }
 }
