@@ -2,7 +2,7 @@ package org.example.fichiers;
 import java.util.List;
 import java.util.ArrayList;
 
-public class GrapheListe implements Graphe {
+public class GrapheListe implements Graphe{
     private ArrayList<String> noeuds;
     private ArrayList<Arcs> adjacence;
 
@@ -11,38 +11,48 @@ public class GrapheListe implements Graphe {
         adjacence = new ArrayList<>();
     }
 
-    public int getIndice(String n) {
+    public int getIndice(String n){
         return noeuds.indexOf(n);
+    }
+
+    public ArrayList<String> getNoeuds() {
+    return noeuds;
+    }
+
+    public ArrayList<Arc> suivants(String n) {
+        ArrayList<Arc> arcsSortants = new ArrayList<>();
+        int indice = noeuds.indexOf(n);
+        if (indice != -1) {
+            Arcs arcs = adjacence.get(indice);
+            arcsSortants.addAll(arcs.getArcs());
+        }
+        return arcsSortants;
     }
 
     public ArrayList<Arcs> getAdjacence(){
         return adjacence;
     }
 
-    public void ajouterArc(String depart, String destination, double cout) {
-        if (!noeuds.contains(depart)) {
+    public void ajouterArc(String depart, String destination, double cout){
+        if (!noeuds.contains(depart)){
             noeuds.add(depart);
             adjacence.add(new Arcs());
         }
-        if (!noeuds.contains(destination)) {
+        if (!noeuds.contains(destination)){
             noeuds.add(destination);
             adjacence.add(new Arcs());
         }
-
         int indiceDepart = getIndice(depart);
         int indiceDestination = getIndice(destination);
-
         adjacence.get(indiceDepart).ajouterArc(new Arc(destination, cout));
     }
 
-    public String toString() {
+    public String toString(){
         String res = "";
-
         for (int i = 0; i < noeuds.size(); i++){
             String noeud = noeuds.get(i);
             Arcs arcss = adjacence.get(i);
             res += noeud + " -> ";
-
             List<Arc> arcs = arcss.getArcs();
             for(int j = 0; j < arcs.size(); j++){
                 Arc arc = arcs.get(j);
@@ -51,10 +61,8 @@ public class GrapheListe implements Graphe {
                     res += " ";
                 }
             }
-
             res += "\n";
         }
-
         return res;
     }
 }

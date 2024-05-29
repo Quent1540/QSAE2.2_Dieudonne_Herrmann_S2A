@@ -1,18 +1,18 @@
 package org.example.fichiers;
 import java.util.List;
 import java.util.ArrayList;
-public class Arcs {
+public class Arcs{
     private List<Arc> arcs;
 
-    public Arcs() {
+    public Arcs(){
         arcs = new ArrayList<>();
     }
 
-    public void ajouterArc(Arc a) {
+    public void ajouterArc(Arc a){
         arcs.add(a);
     }
 
-    public List<Arc> getArcs() {
+    public List<Arc> getArcs(){
         return arcs;
     }
 }

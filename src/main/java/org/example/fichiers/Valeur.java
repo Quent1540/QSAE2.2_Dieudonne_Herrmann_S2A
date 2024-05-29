@@ -89,4 +89,14 @@ public class Valeur {
 
     }
 
+    public List<String> calculerChemin(String destination){
+        List<String> chemin = new ArrayList<>();
+        String ValeurNoeud = destination;
+        while(ValeurNoeud != null){
+            chemin.add(0, ValeurNoeud);
+            ValeurNoeud = this.getParent(ValeurNoeud);
+        }
+        return chemin;
+    }
+
 }
