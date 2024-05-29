@@ -1,0 +1,32 @@
+Fonction pointFixe(G InOut : Graphe, depart : Noeud)
+Variables
+    X, N : Noeud
+    modifie : Booléen
+
+Début
+       Pour chaque noeud X de G faire
+        L(X) ← +∞
+        parent(X) ← nul
+    	FinPour
+
+    L(depart) ← 0
+
+    Répéter
+        modifie ← faux
+
+        Pour chaque noeud X de G faire
+             Pour chaque N adjacent à X faire
+                Si L(X) + coût(X, N) < L(N) alors
+                    L(N) ← L(X) + coût(X, N)
+                    parent(N) ← X
+                    modifie ← vrai
+                FinSi
+            FinPour
+        FinPour
+    Jusqu'à ce que modifie = faux
+Fin
+
+Lexique :
+modifie : booleen indiquant si on doit modifier le parent et L(N) a chque iteration de la boucle
+cout : fonction qui renvoie le cout de l'arc qui relie les deux noeuds en entree
+parent: renvoie le noeud parent du noeud placé en parametre dans le chemin le plus court depuis le noeud de depart
