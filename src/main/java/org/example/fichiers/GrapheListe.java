@@ -15,6 +15,10 @@ public class GrapheListe implements Graphe {
         return noeuds.indexOf(n);
     }
 
+    public ArrayList<Arcs> getAdjacence(){
+        return adjacence;
+    }
+
     public void ajouterArc(String depart, String destination, double cout) {
         if (!noeuds.contains(depart)) {
             noeuds.add(depart);
@@ -32,27 +36,25 @@ public class GrapheListe implements Graphe {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        String res = "";
 
-        // Parcours de tous les noeuds
-        for (int i = 0; i < noeuds.size(); i++) {
+        for (int i = 0; i < noeuds.size(); i++){
             String noeud = noeuds.get(i);
-            Arcs arcsSortants = adjacence.get(i);
+            Arcs arcss = adjacence.get(i);
+            res += noeud + " -> ";
 
-            // Construction de la chaîne pour le noeud actuel
-            sb.append(noeud).append(" -> ");
-
-            // Ajout des arcs sortants
-            List<Arc> arcs = arcsSortants.getArcs();
-            for (int j = 0; j < arcs.size(); j++) {
+            List<Arc> arcs = arcss.getArcs();
+            for(int j = 0; j < arcs.size(); j++){
                 Arc arc = arcs.get(j);
-                sb.append(arc.getDestination()).append("(").append(arc.getCout()).append(")");
-                if (j < arcs.size() - 1) {
-                    sb.append(" ");
+                res += arc.getDest() + "(" + arc.getCout() + ")";
+                if(j < arcs.size() - 1){
+                    res += " ";
                 }
             }
 
-            sb.append("\n");
+            res += "\n";
         }
+
+        return res;
     }
 }
