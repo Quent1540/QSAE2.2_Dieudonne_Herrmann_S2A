@@ -12,7 +12,7 @@ public class Arcs {
         arcs.add(a);
     }
 
-    public List<Arcs> getArcs() {
+    public List<Arc> getArcs() {
         return arcs;
     }
 }

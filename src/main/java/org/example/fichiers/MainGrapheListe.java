@@ -1,5 +1,10 @@
-import package org.example.fichiers;
-public class MainGraphListe {
+package org.example.fichiers;
+
+import org.example.fichiers.Arc;
+import org.example.fichiers.Arcs;
+import org.example.fichiers.GrapheListe;
+
+public class MainGrapheListe {
     public static void main(String[] args) {
         GrapheListe g = new GrapheListe();
         g.ajouterArc("D", "B", 23);
