@@ -3,7 +3,7 @@ package org.example.fichiers;
 import org.example.fichiers.Arc;
 import org.example.fichiers.Arcs;
 import org.example.fichiers.GrapheListe;
-public class BellmanFord {
+public class BellmanFord implements Algorithme {
     public Valeur resoudre(GrapheListe g, String depart){
         Valeur valeurs = new Valeur();
         boolean modification=true;

@@ -12,8 +12,14 @@ public class Main{
         g.ajouterArc("A", "D", 87);
         System.out.println(g.toString());
 
+        // Resolution pour BellmanFord
         BellmanFord b = new BellmanFord();
         Valeur valeurs = b.resoudre(g, "A");
         System.out.println(valeurs);
+
+        // Resolution pour Dijkstra
+        Dijkstra d = new Dijkstra();
+        Valeur valeurs2 = d.resoudre(g, "A");
+        System.out.println(valeurs2);
     }
 }
